@@ -1,0 +1,41 @@
+{
+  "env": "local",
+  "buildtime": {
+    "debug": true,
+    "language": "zh-CN",
+    "analyze": false,
+    "origin_server": {
+      "ip": "0.0.0.0",
+      "port": "3001",
+      "https": {
+        "enabled": false,
+        "crt": "",
+        "key": ""
+      }
+    }
+  },
+  "runtime": {
+    "api": {
+      "host": "https://backend-dev.codemao.cn",
+      "port": "443"
+    },
+    "education": {
+      "host": "https://dev-api-education-codemaster.codemao.cn",
+      "port": ""
+    },
+    "time": {
+      "host": "https://dev-time.codemao.cn",
+      "port": ""
+    },
+    "host": {
+      "event_track": "https://collection.codemao.cn/report/{product_code}",
+      "mlz_host": "https://mlz-dev.codemao.cn",
+      "ide": "https://dev-ide.codemao.cn",
+      "box": "https://box-dev-v2.codemao.cn",
+      "box2": "https://dev-v2-box.codemao.cn",
+      "wood": "https://dev-wood.codemao.cn",
+      "lizzy": "https://dev-lizzy.codemao.cn/",
+      "tob": "https://tob-dev.codemao.cn"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "env": "production",
+  "buildtime": {
+    "origin_server": {
+      "ip": "0.0.0.0",
+      "port": "5000",
+      "https": {
+        "enabled": false,
+        "crt": "",
+        "key": ""
+      }
+    },
+    "debug": false,
+    "hot": false,
+    "sourcemap": false,
+    "uglify": true,
+    "analyze": false
+  },
+  "runtime": {
+    "api": {
+      "host": "https://api.codemao.cn",
+      "port": "443"
+    },
+    "time": {
+      "host": "https://time.codemao.cn",
+      "port": ""
+    },
+    "education": {
+      "host": "https://api-education-codemaster.codemao.cn",
+      "port": ""
+    },
+    "host": {
+      "event_track": "https://collection.codemao.cn/report/{product_code}",
+      "mlz_host": "https://mlz.codemao.cn",
+      "ide": "https://ide.codemao.cn",
+      "box": "https://box.codemao.cn",
+      "box2": "https://box.codemao.cn",
+      "wood": "https://wood.codemao.cn",
+      "lizzy": "https://lizzy.codemao.cn/",
+      "tob": "https://tob.codemao.cn"
+    }
+  }
+}

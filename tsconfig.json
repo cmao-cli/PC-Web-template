@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": false,
+    "allowJs": true,
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "target": "es6",
+    "lib": ["dom", "es2016"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "outDir": "build",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "./types/*"
+      ],
+      "src/*": ["./src/*"],
+      "root": ["."],
+      "components/*": [
+        "./src/components/*"
+      ]
+    },
+    "sourceMap": true
+  },
+  "files": [
+    "src/index.tsx",
+    "./js_transition.d.ts"
+  ],
+  "include": [
+    "types",
+    "acceptance_test",
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "useBabel": true
+  }
+}

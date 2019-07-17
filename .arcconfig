@@ -1,0 +1,6 @@
+{
+    "phabricator.uri" : "https://phab.srv.codemao.cn/",
+    "base": "git:merge-base(origin/master), arc:prompt",
+    "arc.land.onto.default": "master",
+    "history.immutable": true
+}
