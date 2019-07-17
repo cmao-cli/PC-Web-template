@@ -1,7 +1,7 @@
 {
-  "name": "${name}」",
+  "name": "${name}",
   "version": "${version}",
-  "description": "${desc}",
+  "description": "${description}",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --config webpack.dev.config.js",
     "start": "./script/dev_server.sh",
