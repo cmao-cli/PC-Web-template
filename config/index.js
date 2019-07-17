@@ -4,7 +4,7 @@ var path = require('path');
 var cfg_dir = path.join(__dirname);
 var env = process.env.front_env;
 var lodash = require('lodash');
-var cdn_env = 'CDNPATH'; //value:qiniu|aliyun, 用于区分上传的cdn路径
+var cdn_env = 'CDNPATH';
 
 function generate_cfg() {
   var default_config_path = path.join(cfg_dir, 'default.json');
@@ -15,7 +15,6 @@ function generate_cfg() {
   if (file_exists(local_config_path)) {
     local_config = require(local_config_path);
   }
-  console.log('env', env);
   if (env) {
     var env_cfg_path = path.join(cfg_dir, `${env}.json`);
     if (file_exists(env_cfg_path)) {
@@ -30,7 +29,6 @@ function generate_cfg() {
   var backup_config = require(path.join(cfg_dir, 'backup.json'));
   var cdn_cfg_path = process.env[cdn_env];
 
-  console.log('CDNPATH', cdn_cfg_path);
   var mixed_config = cdn_cfg_path === 'aliyun' ?
     lodash.merge(
       {}, // apply modifications to this new dict

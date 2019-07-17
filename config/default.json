@@ -19,26 +19,10 @@
   },
   "runtime": {
     "api": {
-      "host": "https://api.codemao.cn",
-      "port": "443"
-    },
-    "time": {
-      "host": "https://time.codemao.cn",
-      "port": ""
-    },
-    "education": {
-      "host": "https://api-education-codemaster.codemao.cn",
-      "port": ""
+      "api1": "https://api.codemao.cn"
     },
     "host": {
-      "event_track": "https://collection.codemao.cn/report/{product_code}",
-      "mlz_host": "https://mlz.codemao.cn",
-      "ide": "https://ide.codemao.cn",
-      "box": "https://box.codemao.cn",
-      "box2": "https://box.codemao.cn",
-      "wood": "https://wood.codemao.cn",
-      "lizzy": "https://lizzy.codemao.cn/",
-      "tob": "https://tob.codemao.cn"
+      "host1": "https://api.codemao.cn"
     }
   }
 }

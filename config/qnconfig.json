@@ -1,7 +1,7 @@
 {
-  "src_dir": "build",
-  "bucket": "static-k12edu",
-  "key_prefix": "mlz_classroom/build/",
+  "src_dir": "",
+  "bucket": "",
+  "key_prefix": "",
   "rescan_local": true,
   "log_stdout":true,
   "skip_suffixes": ".map,.map.gz",
