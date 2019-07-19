@@ -77,13 +77,7 @@ const config_common = {
       {
         test: /\.(ts|tsx)?$/,
         use: [
-          'babel-loader?cacheDirectory=true',
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-            },
-          },
+          'babel-loader',
         ],
         include: path.resolve(config.ROOT_PATH, 'src'),
         exclude: /(node_modules)/,

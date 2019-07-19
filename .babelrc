@@ -6,7 +6,8 @@
         "modules": false
       }
     ],
-    "@babel/preset-react"
+    "@babel/preset-react",
+    "@babel/preset-typescript", // ts
   ],
   "plugins": [
     [
@@ -18,6 +19,12 @@
         "useESModules": false
       }
     ],
-    "@babel/plugin-syntax-dynamic-import"
+    "@babel/plugin-syntax-dynamic-import",
+    [
+      "@babel/plugin-syntax-decorators",  // 支持装饰器
+      {
+        "legacy": true,
+      }
+    ]
   ]
 }

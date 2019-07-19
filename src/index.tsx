@@ -4,10 +4,8 @@ import * as ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { create_store } from './redux/root_store';;
 import { RootRouter } from './router';
-import { createBrowserHistory } from 'history';
 
 require('./commons/style.scss');
-const history = createBrowserHistory();
 const store = create_store();
 const root_element = document.getElementById('root');
 ReactDOM.render(
