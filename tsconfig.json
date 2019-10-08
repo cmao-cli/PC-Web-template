@@ -29,7 +29,6 @@
   ],
   "include": [
     "types",
-    "acceptance_test",
     "src/**/*"
   ],
   "exclude": [

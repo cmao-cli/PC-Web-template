@@ -1,11 +1,10 @@
 const path = require('path');
-const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const pxtorem = require('postcss-pxtorem');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const config = require('./base_config');
+const config = require('./base-config');
 let is_dev = process.env.NODE_ENV !== 'production';
 
 // Configs
@@ -44,29 +43,26 @@ const config_common = {
           path.resolve(config.ROOT_PATH, 'src')
         ],
         use: [
-          'style-loader',
-          'css-loader?modules&localsConvention=[name]__[local]___[hash:base64:5]',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: is_dev,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: "[name]__[hash:5]"
+              }
+            }
+          },
           {
             loader: 'postcss-loader',
             options: {
               plugins: function () {
                 return [
                   autoprefixer(),
-                  pxtorem({
-                    rootValue: 100,
-                    propList: [
-                      '*',
-                      '!min-width',
-                      '!border',
-                      '!border-left',
-                      '!border-right',
-                      '!border-top',
-                      '!border-bottom',
-                    ],
-                    selectorBlackList: [
-                      'no_rem'
-                    ],
-                  }),
                 ];
               }
             }
@@ -96,17 +92,18 @@ const config_common = {
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: is_dev ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: is_dev ? '[id].css' : '[id].[contenthash].css',
+      ignoreOrder: false, // Enable to remove warnings about conflicting order
+    }),
     new CleanWebpackPlugin(
       {
         root: config.ROOT_PATH, // An absolute path for the root.
         verbose: true, // Write logs to console.
         dry: false, // Use boolean 'true' to test/emulate delete. (will not remove files).
       }
-    ),
-    new webpack.DefinePlugin({
-      'DEBUG': config.DEBUG,
-      'DEV': is_dev
-    })
+    )
   ],
 };
 if (config.ANALYZE) {

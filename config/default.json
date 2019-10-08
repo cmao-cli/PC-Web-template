@@ -1,7 +1,7 @@
 {
   "env": "production",
   "buildtime": {
-    "cdn_path": "https://static-k12edu.codemao.cn/mlz_classroom/build/",
+    "cdn_path": "",
     "origin_server": {
       "ip": "0.0.0.0",
       "port": "5000",
@@ -19,10 +19,10 @@
   },
   "runtime": {
     "api": {
-      "api1": "https://api.codemao.cn"
+      "api1": ""
     },
     "host": {
-      "host1": "https://api.codemao.cn"
+      "host1": ""
     }
   }
 }

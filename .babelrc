@@ -7,9 +7,17 @@
       }
     ],
     "@babel/preset-react",
-    "@babel/preset-typescript", // ts
+    "@babel/preset-typescript" // ts
   ],
   "plugins": [
+    ["react-css-modules", {
+      "generateScopedName": "[name]__[hash:5]",
+      "filetypes": {
+        ".scss": {
+          "syntax": "postcss-scss"
+        }
+      }
+    }],
     [
       "@babel/plugin-transform-runtime",
       {
@@ -19,12 +27,6 @@
         "useESModules": false
       }
     ],
-    "@babel/plugin-syntax-dynamic-import",
-    [
-      "@babel/plugin-syntax-decorators",  // 支持装饰器
-      {
-        "legacy": true,
-      }
-    ]
+    "@babel/plugin-syntax-dynamic-import"
   ]
 }

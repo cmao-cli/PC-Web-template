@@ -26,14 +26,12 @@ function generate_cfg() {
   }
 
   var default_config = require(default_config_path);
-  var backup_config = require(path.join(cfg_dir, 'backup.json'));
   var cdn_cfg_path = process.env[cdn_env];
 
   var mixed_config = cdn_cfg_path === 'aliyun' ?
     lodash.merge(
       {}, // apply modifications to this new dict
       default_config,
-      backup_config,
       env_config,
       local_config) :
     lodash.merge(

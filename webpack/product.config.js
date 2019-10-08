@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const path = require('path');
-const config = require('./base_config');
+const config = require('./base-config');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -22,7 +22,7 @@ const config_prod = {
      chunks: 'all',
      cacheGroups: {
         vendors: {
-            test: /[\\/]node_modules[\\/]/
+          test: /[\\/]node_modules[\\/]/
         },
         lib: {
           test: /[\\/]libs[\\/]/
@@ -80,7 +80,6 @@ const config_prod = {
       filename: 'index.html',
       template: path.resolve(config.SRC_PATH, 'index.ejs'),
       favicon: path.resolve(config.ROOT_PATH, 'favicon.ico'),
-      live2d: `<script src=${JSON.stringify(config.RUNTIME.host.live2d.host)}></script>`,
       minify: {
         removeAttributeQuotes: true,
         collapseWhitespace: true,

@@ -1,0 +1,9 @@
+{
+  "src_dir": "",
+  "bucket": "",
+  "key_prefix": "",
+  "rescan_local": true,
+  "log_stdout":true,
+  "skip_suffixes": ".map,.map.gz",
+  "check_exists":true
+}
