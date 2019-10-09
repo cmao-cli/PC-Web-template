@@ -94,7 +94,6 @@ const config_prod = {
     ]
   },
   plugins: [
-    new webpack.HashedModuleIdsPlugin(),
     new webpack.DefinePlugin({
       'DEBUG': config.DEBUG,
       'DEV': false,

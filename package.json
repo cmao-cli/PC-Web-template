@@ -1,5 +1,5 @@
 {
-  "name": "web-template",
+  "name": "pc-web-template",
   "version": "0.0.0",
   "description": "template for pc website",
   "scripts": {
@@ -13,12 +13,11 @@
     "unit_test": "./node_modules/jest/bin/jest.js --color",
     "test": "tslint -c tslint.json -p tsconfig.json"
   },
-  "author": "${author}",
+  "author": "juice cube",
   "license": "ISC",
   "dependencies": {
     "rdx-model": "0.0.2",
     "react": "^16.8.6",
-    "react-css-modules": "^4.7.11",
     "react-dom": "^16.8.6",
     "react-loadable": "^5.5.0",
     "react-redux": "^7.1.0",

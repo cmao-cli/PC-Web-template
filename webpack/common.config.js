@@ -98,13 +98,11 @@ const config_common = {
       chunkFilename: is_dev ? '[id].css' : '[id].[contenthash].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
-    new CleanWebpackPlugin(
-      {
-        root: config.ROOT_PATH, // An absolute path for the root.
-        verbose: true, // Write logs to console.
-        dry: false, // Use boolean 'true' to test/emulate delete. (will not remove files).
-      }
-    ),
+    new CleanWebpackPlugin({
+      root: config.ROOT_PATH, // An absolute path for the root.
+      verbose: true, // Write logs to console.
+      dry: false, // Use boolean 'true' to test/emulate delete. (will not remove files).
+    }),
     new webpack.DefinePlugin({
       'DEBUG': config.DEBUG,
     })
