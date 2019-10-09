@@ -28,7 +28,7 @@ const config_dev = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        loader: 'url-loader?limit=10000&name=img/[hash].[ext]',
+        loader: 'url-loader?limit=100000&name=img/[hash].[ext]',
         exclude: /node_modules/,
       },
       {

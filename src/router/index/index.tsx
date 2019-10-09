@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import * as cx from 'classnames';
-
 import { bindActionCreators } from 'redux';
+
 import { ReduxState } from 'src/redux/root_reducer';
 import { DemoState, add_num, minus_num } from './redux';
 import './index.scss';

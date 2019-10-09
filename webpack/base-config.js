@@ -7,7 +7,7 @@ module.exports = {
   BUILD_PATH: path.resolve(__dirname, '../build'),
   NODE_MODULES_PATH: path.resolve(__dirname, '../node_modules'),
   PUBLIC_PATH_ASSET:'/',
-  QINIU_CDN_PATH: cfg.buildtime.cdn_path,
+  CDN_PATH: cfg.buildtime.cdn_path,
   RUNTIME: cfg.runtime,
   DEBUG: cfg.buildtime.debug,
   ANALYZE: cfg.buildtime.analyze,

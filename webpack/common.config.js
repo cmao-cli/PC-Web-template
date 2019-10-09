@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -16,7 +17,7 @@ const config_common = {
     // 打包输出的文件
     path: config.BUILD_PATH,
     publicPath: '/',
-    globalObject: 'this'
+    // globalObject: 'this'
   },
   resolve: {
     modules: [
@@ -103,7 +104,10 @@ const config_common = {
         verbose: true, // Write logs to console.
         dry: false, // Use boolean 'true' to test/emulate delete. (will not remove files).
       }
-    )
+    ),
+    new webpack.DefinePlugin({
+      'DEBUG': config.DEBUG,
+    })
   ],
 };
 if (config.ANALYZE) {

@@ -13,6 +13,8 @@ export let create_store =  () : Store<ReduxState> => {
 
   const store:any = create_store_with_midddleware(
     root_reducer,
+    DEBUG && (<any>window).__REDUX_DEVTOOLS_EXTENSION__
+      && (<any>window).__REDUX_DEVTOOLS_EXTENSION__(),
   );
   return store;
 };

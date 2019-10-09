@@ -11,13 +11,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config_prod = {
   mode: 'production',
   output: {
-    publicPath: config.QINIU_CDN_PATH, // local: '/'
+    publicPath: config.CDN_PATH, // local: '/'
     filename: 'js/[name].[chunkhash].js',
     chunkFilename: 'js/[name].[chunkhash].js'
   },
   optimization: {
     removeAvailableModules: true,
     removeEmptyChunks: true,
+    moduleIds: 'hashed',
+    runtimeChunk: "single",
     splitChunks: {
      chunks: 'all',
      cacheGroups: {
@@ -29,7 +31,6 @@ const config_prod = {
         }
       }
     },
-    runtimeChunk: "single",
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
@@ -44,24 +45,51 @@ const config_prod = {
           }
         }
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          discardComments: { removeAll: true },
+        },
+        canPrint: true
+      }),
     ]
   },
   module: {
     rules: [
       {
-        loader: `url-loader?limit=100000&name=asset/[name]_[hash:5].[ext]&publicPath=${config.QINIU_CDN_PATH}`,
-        test: /\.(woff|woff2|eot|ttf)$/
+        test: /\.(woff|woff2|eot|ttf)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 3 * 1024,
+              name: 'asset/[name]_[hash:5].[ext]',
+              publicPath: config.CDN_PATH,
+            }
+          }
+        ],
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
-        loader: `url-loader?limit=10000&name=img/[hash].[ext]&name=asset/[name]_[hash:5].[ext]&publicPath=${config.QINIU_CDN_PATH}`,
         exclude: /node_modules/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 3 * 1024,
+              name: 'asset/[name]_[hash:5].[ext]',
+              publicPath: config.CDN_PATH,
+            }
+          },
+          {
+            loader: 'image-webpack-loader', //图片压缩
+          }
+        ],
       },
       {
-        test: /\.mp3$/,
-        include: /src/,
-        loader: 'file-loader'
+        test: /\.(mp3|mp4)$/,
+        exclude: /node_modules/,
+        loader: 'file-loader',
       },
     ]
   },
