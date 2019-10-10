@@ -18,8 +18,8 @@ module.exports = {
     'react',
     'react-dom',
     'redux',
-    'classnames',
-    'react-css-modules',
-    'react-redux'
+    'react-redux',
+    'react-router',
+    'react-router-dom',
   ],
 };

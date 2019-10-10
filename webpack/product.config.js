@@ -8,6 +8,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const libraries = config.libraries.join('|');
 const config_prod = {
   mode: 'production',
   output: {
@@ -24,10 +25,10 @@ const config_prod = {
      chunks: 'all',
      cacheGroups: {
         vendors: {
-          test: /[\\/]node_modules[\\/]/
+          test: new RegExp(`(node_modules/(${libraries}))/`),
         },
         lib: {
-          test: /[\\/]libs[\\/]/
+          test: new RegExp(`(node_modules/(classnames))/`),
         }
       }
     },
