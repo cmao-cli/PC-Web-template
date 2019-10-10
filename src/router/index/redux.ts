@@ -16,6 +16,7 @@ export const demo = createModel({
       name: Raw('add_num'),
       reducer: (state, action:Action<number>) : DemoState => {
         const temp = state.num + action.payload;
+        console.log(temp);
         return Object.assign({}, state, {num: temp});
       },
     },

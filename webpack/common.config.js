@@ -5,7 +5,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const config = require('./base-config');
+const config = require('./config');
 let is_dev = process.env.NODE_ENV !== 'production';
 
 // Configs
@@ -111,4 +111,5 @@ const config_common = {
 if (config.ANALYZE) {
   config_common.plugins.push(new BundleAnalyzerPlugin());
 }
+
 module.exports = config_common;

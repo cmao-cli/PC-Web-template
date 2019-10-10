@@ -13,7 +13,7 @@
     },
     "debug": false,
     "hot": false,
-    "sourcemap": false,
+    "sourceMap": "https://localhost:5000",
     "uglify": true,
     "analyze": false
   },

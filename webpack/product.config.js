@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const path = require('path');
-const config = require('./base-config');
+const config = require('./config');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -35,6 +35,7 @@ const config_prod = {
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
+        sourceMap: true,
         uglifyOptions: {
           compress: {
             unused: true,
@@ -56,20 +57,6 @@ const config_prod = {
   module: {
     rules: [
       {
-        test: /\.(woff|woff2|eot|ttf)$/,
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 3 * 1024,
-              name: 'asset/[name]_[hash:5].[ext]',
-              publicPath: config.CDN_PATH,
-            }
-          }
-        ],
-      },
-      {
         test: /\.(jpe?g|png|gif|svg)$/,
         exclude: /node_modules/,
         use: [
@@ -77,7 +64,7 @@ const config_prod = {
             loader: 'url-loader',
             options: {
               limit: 3 * 1024,
-              name: 'asset/[name]_[hash:5].[ext]',
+              name: 'images/[name]_[hash:5].[ext]',
               publicPath: config.CDN_PATH,
             }
           },
@@ -87,10 +74,18 @@ const config_prod = {
         ],
       },
       {
-        test: /\.(mp3|mp4)$/,
+        test: /\.(woff|woff2|eot|ttf|mp3|mp4)$/,
         exclude: /node_modules/,
-        loader: 'file-loader',
-      },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'assets/[name]_[hash:5].[ext]',
+              publicPath: config.CDN_PATH,
+            }
+          }
+        ],
+      }
     ]
   },
   plugins: [
@@ -117,6 +112,11 @@ const config_prod = {
       },
     }),
     new InlineManifestWebpackPlugin(),
+    new webpack.SourceMapDevToolPlugin({
+      // this is the url of our local sourcemap server
+      publicPath: config.SOURCEMAP,
+      filename: '[file].map',
+    })
   ]
 }
 

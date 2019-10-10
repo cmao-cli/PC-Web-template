@@ -1,7 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const config = require('./base-config');
+const config = require('./config');
 
 module.exports = {
   entry: {
