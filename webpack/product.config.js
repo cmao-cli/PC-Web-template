@@ -20,7 +20,9 @@ const config_prod = {
     removeAvailableModules: true,
     removeEmptyChunks: true,
     moduleIds: 'hashed',
-    runtimeChunk: "single",
+    runtimeChunk: {
+      name: 'manifest',
+    },
     splitChunks: {
      chunks: 'all',
      cacheGroups: {
