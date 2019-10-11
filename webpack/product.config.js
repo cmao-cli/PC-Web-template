@@ -8,7 +8,7 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const libraries = config.libraries.join('|');
+const libraries = config.libs;
 const config_prod = {
   mode: 'production',
   output: {
@@ -24,11 +24,20 @@ const config_prod = {
     splitChunks: {
      chunks: 'all',
      cacheGroups: {
-        vendors: {
-          test: new RegExp(`(node_modules/(${libraries}))/`),
-        },
-        lib: {
-          test: new RegExp(`(node_modules/(classnames))/`),
+        vendor: {
+          test: /node_modules/,
+          chunks: 'all',
+          name(module) {
+            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+            const names = Object.keys(libraries);
+            let name = 'lib';
+            names.map((val) => {
+              if (libraries[val].indexOf(packageName) >= 0) {
+                name = val;
+              }
+            });
+            return name;
+          }
         }
       }
     },

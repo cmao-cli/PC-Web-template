@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import * as cx from 'classnames';
 import { bindActionCreators } from 'redux';
+import { IMClient, ConnectType, DisconnectType, SendType, EnvType, ConfigType } from '@cmao/mlz-im';
 
 import { ReduxState } from 'src/redux/root_reducer';
 import { DemoState, add_num, minus_num } from './redux';
@@ -16,6 +17,7 @@ interface IndexProps {
 class Index extends React.PureComponent<IndexProps> {
   render() {
     const { num } = this.props.demoState;
+    const im = new IMClient({env: 'dev'});
     return (
       <div>
         <h1>This is a demo.</h1>

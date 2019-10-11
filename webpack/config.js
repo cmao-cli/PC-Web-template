@@ -14,6 +14,19 @@ module.exports = {
   ENV: cfg.env,
   SOURCEMAP: cfg.buildtime.sourcemap,
   UGLIFY: cfg.buildtime.uglify,
+  libs: {
+    vender: [
+      'react',
+      'react-dom',
+      'redux',
+      'react-redux',
+      'react-router',
+      'react-router-dom',
+    ],
+    cmaoVender: [
+      '@cmao',
+    ],
+  },
   libraries: [
     'react',
     'react-dom',
