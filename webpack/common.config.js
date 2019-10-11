@@ -6,8 +6,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = require('./config');
-let is_dev = process.env.NODE_ENV !== 'production';
-
 // Configs
 const config_common = {
   entry: {
@@ -33,7 +31,7 @@ const config_common = {
     cacheWithContext: false
   },
   externals: {
-    'CONFIG': is_dev ? `'${JSON.stringify(config.RUNTIME)}'` : {},
+    'CONFIG': config.is_dev ? `'${JSON.stringify(config.RUNTIME)}'` : {},
   },
   module: {
     rules: [
@@ -47,14 +45,14 @@ const config_common = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: is_dev,
+              hmr: config.is_dev,
             },
           },
           {
             loader: 'css-loader',
             options: {
               modules: {
-                localIdentName: "[name]__[hash:5]"
+                localIdentName: config.CSS_SCOPED_NAME
               }
             }
           },
@@ -94,8 +92,8 @@ const config_common = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: is_dev ? '[name].css' : '[name].[contenthash].css',
-      chunkFilename: is_dev ? '[id].css' : '[id].[contenthash].css',
+      filename: config.is_dev ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: config.is_dev ? '[id].css' : '[id].[contenthash].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
     new CleanWebpackPlugin({

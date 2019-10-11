@@ -11,6 +11,7 @@
         "key": ""
       }
     },
+    "cssScopedName": "[name]__[hash:5]",
     "debug": false,
     "hot": false,
     "sourceMap": "https://localhost:5000/",

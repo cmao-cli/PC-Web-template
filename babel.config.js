@@ -1,4 +1,5 @@
-{
+const config = require('./webpack/config.js');
+module.exports = {
   "presets": [
     [
       "@babel/preset-env",
@@ -11,7 +12,7 @@
   ],
   "plugins": [
     ["react-css-modules", {
-      "generateScopedName": "[name]__[hash:5]",
+      "generateScopedName": config.CSS_SCOPED_NAME,
       "filetypes": {
         ".scss": {
           "syntax": "postcss-scss"
