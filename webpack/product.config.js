@@ -102,8 +102,7 @@ const config_prod = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'DEBUG': config.DEBUG,
-      'DEV': false,
+      'DEBUG': false,
     }),
     new CompressionPlugin({
       test: /\.js$|\.css$|\.html$/,

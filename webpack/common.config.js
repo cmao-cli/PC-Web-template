@@ -101,9 +101,6 @@ const config_common = {
       verbose: true, // Write logs to console.
       dry: false, // Use boolean 'true' to test/emulate delete. (will not remove files).
     }),
-    new webpack.DefinePlugin({
-      'DEBUG': config.DEBUG,
-    })
   ],
 };
 if (config.ANALYZE) {

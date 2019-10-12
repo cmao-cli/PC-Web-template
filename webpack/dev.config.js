@@ -40,6 +40,9 @@ const config_dev = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'DEBUG': config.DEBUG,
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DllReferencePlugin({
       context: path.join(__dirname, 'dll'),
