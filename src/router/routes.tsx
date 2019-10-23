@@ -2,12 +2,12 @@ import * as React from 'react';
 import { RouteProps } from 'react-router-dom';
 import * as Loadable from 'react-loadable';
 
-
 const MyLoadingComponent = ({ isLoading, error }) => {
   if (isLoading) {
     return <div>Loading...</div>;
   }
   else if (error) {
+    console.error(error);
     return <div>Sorry, there was a problem loading the page.</div>;
   }
   else {
@@ -26,6 +26,11 @@ export let routes:RouteProps[] = [
     path: '/',
     exact: true,
     component: _loadable(() => import('./index')),
+  },
+  {
+    path: '/redux_example',
+    exact: true,
+    component: _loadable(() => import('./redux_example')),
   },
   {
     component: _loadable(() => import('../components/PageNotFound')),
