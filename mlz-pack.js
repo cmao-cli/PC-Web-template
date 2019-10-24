@@ -1,6 +1,5 @@
 const path = require('path');
 const config = require('./config')
-console.log(config);
 
 module.exports = {
   // "baseUrl": __dirname,
@@ -9,8 +8,9 @@ module.exports = {
     filename: 'index.html',
     template: path.resolve(__dirname, './src/index.ejs'),
     favicon: path.resolve(__dirname, './favicon.ico'),
-    // 这个配置也是需要外部传入的，所以这个config
-    // front_config: `<script>window.CODEMAOCONFIG = ${JSON.stringify(config.RUNTIME)}</script>`,
+    options: {
+      front_config: `<script>window.CODEMAOCONFIG = ${JSON.stringify(config.RUNTIME)}</script>`,
+    }
   },
   // alias: {
   //   src: path.join(__dirname, 'src'),
