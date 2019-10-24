@@ -11,7 +11,9 @@
     "stats": "webpack --config webpack.config.js -p --progress --json > stats.json",
     "lint": "./node_modules/tslint/bin/tslint -c tslint.json 'src/**/*.ts' 'src/**/*.tsx'",
     "unit_test": "./node_modules/jest/bin/jest.js --color",
-    "test": "tslint -c tslint.json -p tsconfig.json"
+    "test": "tslint -c tslint.json -p tsconfig.json",
+    "pack:dev": "mlz-pack serve",
+    "pack:build": "mlz-pack build"
   },
   "author": "juice cube",
   "license": "ISC",

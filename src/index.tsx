@@ -7,7 +7,9 @@ import { RootRouter } from './router';
 
 require('./commons/style.scss');
 const store = create_store();
+
 const root_element = document.getElementById('root');
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
