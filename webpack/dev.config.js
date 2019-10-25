@@ -7,11 +7,13 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackTagsPlugin = require('html-webpack-tags-plugin');
 
 const config_dev = {
-  entry: {
-    index: [
-      "webpack-hot-middleware/client?reload=true&timeout=2000&overlay=false",
-    ]
-  },
+  // entry: {
+  //   index: [
+  //     // require.resolve('webpack-dev-server/client') + '?/',
+  //     // require.resolve('webpack/hot/dev-server'),
+  //     // "webpack-hot-middleware/client?reload=true&timeout=2000&overlay=false",
+  //   ]
+  // },
   output: {
     filename: 'js/[name].js',
     chunkFilename: 'js/[name].js',
@@ -38,6 +40,11 @@ const config_dev = {
         exclude: /node_modules/,
       },
     ]
+  },
+  resolve: {
+    alias: {
+      'react-dom': '@hot-loader/react-dom',
+    }
   },
   plugins: [
     new webpack.DefinePlugin({

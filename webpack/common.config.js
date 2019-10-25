@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = require('./config');
-// Configs
+
 const config_common = {
   entry: {
     index: [ path.resolve(config.SRC_PATH, './index.tsx') ],
@@ -40,12 +40,13 @@ const config_common = {
           path.resolve(config.ROOT_PATH, 'src')
         ],
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: config.is_dev,
-            },
-          },
+          // {
+          //   loader: MiniCssExtractPlugin.loader,
+          //   options: {
+          //     hmr: config.IS_DEV,
+          //   },
+          // },
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -69,9 +70,31 @@ const config_common = {
       },
       {
         test: /\.(ts|tsx)?$/,
-        use: [
-          'babel-loader',
-        ],
+        // use: [
+        //   'babel-loader',
+        // ],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+            babelrc: false,
+            presets: [
+              [
+                '@babel/preset-env',
+                { targets: { browsers: 'last 2 versions' } }, // or whatever your project requires
+              ],
+              '@babel/preset-typescript',
+              '@babel/preset-react',
+            ],
+            plugins: [
+              // plugin-proposal-decorators is only needed if you're using experimental decorators in TypeScript
+              // ['@babel/plugin-proposal-decorators', { legacy: true }],
+              // ['@babel/plugin-proposal-class-properties', { loose: true }],
+              "@babel/plugin-syntax-dynamic-import",
+              'react-hot-loader/babel',
+            ],
+          },
+        },
         include: path.resolve(config.ROOT_PATH, 'src'),
         exclude: /(node_modules)/,
       },
