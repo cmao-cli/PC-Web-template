@@ -8,9 +8,9 @@ import { DemoState, add_num, minus_num } from './redux';
 import './index.scss';
 
 interface IndexProps {
-  demoState: DemoState,
-  add_num: typeof add_num,
-  minus_num: typeof minus_num,
+  demoState:DemoState;
+  add_num:typeof add_num;
+  minus_num:typeof minus_num;
 }
 
 class Index extends React.PureComponent<IndexProps> {

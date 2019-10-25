@@ -8,6 +8,5 @@ export default () => {
       <div styleName="icon"></div>
       <div styleName="text">Page not found.(Or wrong path.)</div>
     </div>
-  
   );
 };
