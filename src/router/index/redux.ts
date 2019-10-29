@@ -2,7 +2,7 @@ import { createModel, Raw, Action } from 'rdx-model';
 // example
 // states
 export interface DemoState {
-  num:number
+  num:number;
 }
 // initial states
 export const default_state:DemoState = {
@@ -26,8 +26,8 @@ export const demo = createModel({
         const temp = state.num - action.payload;
         return Object.assign({}, state, {num: temp});
       },
-    }
-  }
+    },
+  },
 });
 
 export const { add_num, minus_num } = demo.actions;
