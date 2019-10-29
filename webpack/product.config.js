@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const path = require('path');
 const config = require('./config');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin")
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin')
@@ -44,19 +45,8 @@ const config_prod = {
       }
     },
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
+      new TerserPlugin({
         sourceMap: true,
-        uglifyOptions: {
-          compress: {
-            unused: true,
-            drop_debugger: true,
-          },
-          output: {
-            comments: false
-          }
-        }
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
@@ -111,6 +101,7 @@ const config_prod = {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
+      inject: 'head',
       template: path.resolve(config.SRC_PATH, 'index.ejs'),
       favicon: path.resolve(config.ROOT_PATH, 'favicon.ico'),
       minify: {

@@ -30,9 +30,7 @@ const config_common = {
     symlinks: false,
     cacheWithContext: false
   },
-  externals: {
-    'CONFIG': config.is_dev ? `'${JSON.stringify(config.RUNTIME)}'` : {},
-  },
+  externals: {},
   module: {
     rules: [
       {
