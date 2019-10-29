@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { DemoState, demo } from '../router/index/redux';
+import { DemoState, demo } from '../pages/index/redux';
 export interface ReduxState {
   readonly demoState:DemoState;
 }

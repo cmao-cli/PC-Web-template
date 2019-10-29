@@ -1,7 +1,7 @@
 {
   "env": "production",
   "buildtime": {
-    "cdn_path": "",
+    "cdn_path": "https://static-k12edu.codemao.cn/{project_name}/build/",
     "origin_server": {
       "ip": "0.0.0.0",
       "port": "5000",
@@ -11,19 +11,58 @@
         "key": ""
       }
     },
-    "cssScopedName": "[name]__[hash:5]",
+    "dashboard": false,
     "debug": false,
     "hot": false,
-    "sourceMap": "https://localhost:5000/",
+    "sourcemap": false,
     "uglify": true,
     "analyze": false
   },
   "runtime": {
+    "language": "zh-CN",
     "api": {
-      "api1": ""
+      "host": "https://api.codemao.cn",
+      "port": "443"
+    },
+    "time": {
+      "host": "https://time.codemao.cn",
+      "port": ""
+    },
+    "education": {
+      "host": "https://api-education-codemaster.codemao.cn",
+      "port": ""
+    },
+    "agora_rtc": {
+      "app_id": "87662f6225d24527be46a56eec7dec61"
     },
     "host": {
-      "host1": ""
+      "event_track": "https://collection.codemao.cn/report/{product_code}",
+      "iris": "https://static-am.codemao.cn/iris/iris.js",
+      "ide": "https://ide.codemao.cn",
+      "box": "https://box.codemao.cn",
+      "box2": "https://box.codemao.cn",
+      "wood": "https://wood.codemao.cn",
+      "lizzy": "https://lizzy.codemao.cn/",
+      "tob": "https://tob.codemao.cn",
+      "im_env": "prod",
+      "shequ": "https://shequ.codemao.cn",
+      "mobile": "https://mobile.codemao.cn",
+      "mlz": "https://maochat.codemao.cn",
+      "exam": "https://kaoshi.codemao.cn",
+      "live2d": { 
+        "host": "https://static-k12edu.codemao.cn/maochat/live2d/live2d.84035f7742b82d472215.js",
+        "resource": "https://static-k12edu.codemao.cn/maochat/live2d/Resources/"
+      }
+    },
+    "iris": {
+      "host": "https://static-am.codemao.cn/iris/iris.js",
+      "geetest_product_id": "66ed9e1ac4951bc5a910dfd9d7522bbe",
+      "waterproof_wall_product_id": "2016248957"
+    },
+    "env": "prod",
+    "wechat": {
+      "app_id": "wx239004167e279c9b",
+      "debug": false
     }
   }
 }

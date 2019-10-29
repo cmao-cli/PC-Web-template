@@ -3,10 +3,13 @@
   height: 100%;
   background: #000;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .icon {
     width: 100px;
     height: 100px;
-    background: url('./assets/4.png');
+    background: url('./assets/4.png') no-repeat;
     background-size: contain;
     margin: 50px auto;
   }

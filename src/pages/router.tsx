@@ -11,20 +11,26 @@ const MyLoadingComponent = ({ isLoading, error }:any) => {
     return null;
   }
 };
-export const _loadable = (load_func:any) => {
+
+const _loadable = (load_func:any) => {
   return Loadable({
     loader: load_func,
     loading: MyLoadingComponent,
     delay: 200,
   });
 };
+
+/**
+ * 全局路由表
+ */
 export let routes:RouteProps[] = [
   {
     path: '/',
     exact: true,
-    component: _loadable(() => import('./index')),
+    component: _loadable(() => import('./pages/index')),
+    
   },
   {
-    component: _loadable(() => import('../components/page-not-found')),
+    component: _loadable(() => import('./components/page-not-found')),
   },
 ];
