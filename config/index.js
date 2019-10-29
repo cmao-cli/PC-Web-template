@@ -4,7 +4,22 @@ var path = require('path');
 var cfg_dir = path.join(__dirname);
 var env = process.env.front_env;
 var lodash = require('lodash');
-var cdn_env = 'CDNPATH';
+
+/**
+ * 引入通用配置
+ * 具体详情请见：https://phab.srv.codemao.cn/source/codemaster-mlz-config/
+ */
+const mlzConfig = require('@cmao/mlz-config').config();
+
+
+function file_exists(path) {
+  try {
+    fs.lstatSync(path);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
 
 function generate_cfg() {
   var default_config_path = path.join(cfg_dir, 'default.json');
@@ -26,28 +41,16 @@ function generate_cfg() {
   }
 
   var default_config = require(default_config_path);
-  var cdn_cfg_path = process.env[cdn_env];
 
-  var mixed_config = cdn_cfg_path === 'aliyun' ?
-    lodash.merge(
-      {}, // apply modifications to this new dict
-      default_config,
-      env_config,
-      local_config) :
-    lodash.merge(
-      {}, // apply modifications to this new dict
-      default_config,
-      env_config,
-      local_config)
+  var mixed_config = lodash.merge(
+    {}, // apply modifications to this new dict
+    default_config,
+    mlzConfig,
+    env_config,
+    local_config
+  );
+    
   return mixed_config;
 }
 
-function file_exists(path) {
-  try {
-    fs.lstatSync(path);
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
 module.exports = generate_cfg;

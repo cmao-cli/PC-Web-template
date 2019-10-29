@@ -3,16 +3,21 @@ import { Provider } from 'react-redux';
 import * as ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { create_store } from './redux/root_store';
-import { RootRouter } from './router';
+import { Switch, Route } from 'react-router';
+import { routes } from './pages/router';
+require('./commons/css/style.scss');
 
-require('./commons/style.scss');
 const store = create_store();
 const root_element = document.getElementById('root');
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <RootRouter/>
+        <Switch>
+          {
+            routes.map((val, key) => <Route {...val} key={`route_${key}`}/>)
+          }
+        </Switch>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
