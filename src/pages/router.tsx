@@ -27,10 +27,10 @@ export let routes:RouteProps[] = [
   {
     path: '/',
     exact: true,
-    component: _loadable(() => import('./pages/index')),
+    component: _loadable(() => import('./index')),
     
   },
   {
-    component: _loadable(() => import('./components/page-not-found')),
+    component: _loadable(() => import('../components/page-not-found')),
   },
 ];
