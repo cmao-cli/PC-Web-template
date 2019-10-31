@@ -1,9 +1,8 @@
 var path = require('path')
 var express = require('express')
 var app = express()
-let config = require('../config/index.js');
+let _config = require('../config/index.js');
 const fs = require('fs');
-let _config = config();
 
 const IP = _config.buildtime.origin_server.ip;
 const PORT = _config.buildtime.origin_server.port;
