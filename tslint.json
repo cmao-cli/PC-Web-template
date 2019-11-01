@@ -1,5 +1,9 @@
 {
   "extends": [
     "@mlz/lint/tslint.json"
-  ]
+  ],
+  "rules": {
+    "object-literal-sort-keys": false,
+    "ordered-imports": false
+  }
 }

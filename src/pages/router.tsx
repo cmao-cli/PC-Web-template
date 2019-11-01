@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { RouteProps } from 'react-router-dom';
 import * as Loadable from 'react-loadable';
+import { RouteProps } from 'react-router-dom';
 
 const MyLoadingComponent = ({ isLoading, error }:any) => {
   if (isLoading) {
@@ -12,9 +12,9 @@ const MyLoadingComponent = ({ isLoading, error }:any) => {
   }
 };
 
-const _loadable = (load_func:any) => {
+const _loadable = (loadFunc:any) => {
   return Loadable({
-    loader: load_func,
+    loader: loadFunc,
     loading: MyLoadingComponent,
     delay: 200,
   });
@@ -27,10 +27,9 @@ export let routes:RouteProps[] = [
   {
     path: '/',
     exact: true,
-    component: _loadable(() => import('./pages/index')),
-    
+    component: _loadable(() => import('./index')),
   },
   {
-    component: _loadable(() => import('./components/page-not-found')),
+    component: _loadable(() => import('../components/page-not-found')),
   },
 ];
