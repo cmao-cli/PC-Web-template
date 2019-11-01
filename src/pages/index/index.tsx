@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import * as cx from 'classnames';
 import { bindActionCreators } from 'redux';
 
-import { ReduxState } from 'src/redux/root-reducer';
-import { DemoState, add_num, minus_num } from './redux';
+import { IReduxState } from 'src/redux/root-reducer';
+import { IDemoState, addNum, minusNum } from 'src/redux/demo';
 import './index.scss';
 
 interface IIndexProps {
-  demoState:DemoState;
-  add_num:typeof add_num;
-  minus_num:typeof minus_num;
+  demoState:IDemoState;
+  addNum:typeof addNum;
+  minusNum:typeof minusNum;
 }
 
 class Index extends React.PureComponent<IIndexProps> {
@@ -22,23 +22,23 @@ class Index extends React.PureComponent<IIndexProps> {
         <h1>This is a demo.</h1>
         <div>
           <span styleName={cx('is_black', num % this._divider === 0 && 'is_red')}>{num}</span>
-          <button onClick={() => {this.props.add_num(1); }}>+</button>
-          <button onClick={() => {this.props.minus_num(1); }}>-</button>
+          <button onClick={() => {this.props.addNum(1); }}>+</button>
+          <button onClick={() => {this.props.minusNum(1); }}>-</button>
         </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state:ReduxState) => ({
-  demoState: state.demoState,
+const mapStateToProps = (state:IReduxState) => ({
+  demoState: state.demo,
 });
 const mapDispatchToProps = (dispatch:any) => bindActionCreators({
-  add_num,
-  minus_num,
+  addNum,
+  minusNum,
 }, dispatch);
 
-export const IndexContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps,
 )(Index);

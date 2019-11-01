@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { DemoState, demo } from '../pages/index/redux';
-export interface ReduxState {
-  readonly demoState:DemoState;
+import { IDemoState, demo } from 'src/redux/demo';
+export interface IReduxState {
+  demo:IDemoState;
 }
 
-export const root_reducer = combineReducers<ReduxState>({
-  demoState: demo.reducer,
+export const rootReducer = combineReducers<IReduxState>({
+  demo:demo.reducer,
 });

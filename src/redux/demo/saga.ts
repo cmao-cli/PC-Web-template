@@ -1,5 +1,5 @@
 import { call } from 'redux-saga/effects';
 
 export function* DemoSaga() {
-  yield call(() => {});
+  yield call(() => 'success');
 }

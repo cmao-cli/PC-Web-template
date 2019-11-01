@@ -1,33 +1,33 @@
 import { createModel, Raw, Action } from 'rdx-model';
 // example
 // states
-export interface DemoState {
+export interface IDemoState {
   num:number;
 }
 // initial states
-export const default_state:DemoState = {
+export const defaultState:IDemoState = {
   num: 0,
 };
 // Action && Reducer
 export const demo = createModel({
-  state: default_state,
+  state: defaultState,
   reducers: {
     'demo/add': {
-      name: Raw('add_num'),
-      reducer: (state, action:Action<number>) : DemoState => {
+      name: Raw('addNum'),
+      reducer: (state, action:Action<number>) : IDemoState => {
         const temp = state.num + action.payload!;
-        console.log(temp);
-        return Object.assign({}, state, {num: temp});
+        // console.log(temp);
+        return { ...state, num: temp };
       },
     },
     'demo/minus': {
-      name: Raw('minus_num'),
-      reducer: (state, action:Action<number>) : DemoState => {
+      name: Raw('minusNum'),
+      reducer: (state, action:Action<number>) : IDemoState => {
         const temp = state.num - action.payload!;
-        return Object.assign({}, state, {num: temp});
+        return { ...state, num: temp };
       },
     },
   },
 });
 
-export const { add_num, minus_num } = demo.actions;
+export const { addNum, minusNum } = demo.actions;
