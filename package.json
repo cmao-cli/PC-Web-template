@@ -10,8 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@cmao/mlz-config": "^1.0.0",
+    "@mlz/axios": "^0.2.9",
     "classnames": "^2.2.6",
-    "mlz-axios": "^0.2.8",
     "rdx-model": "0.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -19,7 +19,8 @@
     "react-redux": "^7.1.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.0.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.1"
   },
   "devDependencies": {
     "@mlz/lint": "^1.0.5",
