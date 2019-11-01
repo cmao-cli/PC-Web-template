@@ -43,7 +43,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@mlz/lint": "^1.0.5",
+    "@mlz/lint": "^1.0.8",
     "@types/classnames": "^2.2.9",
     "@types/node": "^12.6.2",
     "@types/react-css-modules": "^4.6.2",
