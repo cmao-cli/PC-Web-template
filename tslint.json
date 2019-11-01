@@ -1,5 +1,5 @@
 {
   "extends": [
     "@mlz/lint/tslint.json"
-  ],
+  ]
 }
