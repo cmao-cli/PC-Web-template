@@ -1,7 +1,7 @@
 {
   "extends": "./node_modules/@mlz/lint/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": ".",   
   },
   "files": [
     "./js_transition.d.ts"
