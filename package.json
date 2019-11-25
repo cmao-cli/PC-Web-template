@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "template for pc website",
   "scripts": {
-    "production": "node ./bin/server.js",
+    "build": "node ./bin/server.js",
     "start": "mlz-pack serve"
   },
   "husky": {
@@ -27,8 +27,9 @@
   "author": "juice cube",
   "license": "ISC",
   "dependencies": {
-    "@cmao/mlz-config": "^1.0.0",
+    "@cmao/mlz-config": "^1.0.1",
     "@mlz/axios": "^0.2.9",
+    "@mlz/super-utils": "^1.0.6",
     "classnames": "^2.2.6",
     "rdx-model": "0.0.2",
     "react": "^16.8.6",
@@ -43,7 +44,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
-    "@mlz/lint": "^1.0.9",
+    "@mlz/lint": "^1.0.10",
     "@mlz/pack": "0.0.16",
     "@types/classnames": "^2.2.9",
     "@types/node": "^12.6.2",

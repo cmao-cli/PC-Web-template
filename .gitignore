@@ -38,3 +38,5 @@ build/
 src/test.tsx
 pack.sh
 stats.json
+
+yarn-error.log
