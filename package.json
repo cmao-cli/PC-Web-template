@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "template for pc website",
   "scripts": {
-    "build": "node ./bin/server.js",
+    "production": "node ./bin/server.js",
+    "build": "mlz-pack build",
     "start": "mlz-pack serve"
   },
   "husky": {
