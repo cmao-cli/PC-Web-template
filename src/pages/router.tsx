@@ -1,23 +1,17 @@
 import * as React from 'react';
-import * as Loadable from 'react-loadable';
+import { Suspense, lazy } from 'react';
+import { ErrorBoundary } from 'src/components/error-boundary';
 import { RouteProps } from 'react-router-dom';
 
-const MyLoadingComponent = ({ isLoading, error }:any) => {
-  if (isLoading) {
-    return <div>Loading...</div>;
-  } else if (error) {
-    return <div>Sorry, there was a problem loading the page.</div>;
-  } else {
-    return null;
-  }
-};
-
-const _loadable = (loadFunc:any) => {
-  return Loadable({
-    loader: loadFunc,
-    loading: MyLoadingComponent,
-    delay: 200,
-  });
+export const _lazy = (loadFunc:() => Promise<any>) => {
+  const Component = lazy(loadFunc);
+  return () => (
+      <ErrorBoundary>
+        <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>loading</div>}>
+          <Component />
+        </Suspense>
+      </ErrorBoundary>
+    );
 };
 
 /**
@@ -27,9 +21,9 @@ export let routes:RouteProps[] = [
   {
     path: '/',
     exact: true,
-    component: _loadable(() => import('./index')),
+    component: _lazy(() => import('./index/index')),
   },
   {
-    component: _loadable(() => import('../components/page-not-found')),
+    component: _lazy(() => import('../components/page-not-found')),
   },
 ];
