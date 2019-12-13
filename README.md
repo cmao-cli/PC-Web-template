@@ -61,6 +61,25 @@ npm run build
 ├── package.json
 ```
 
+## 使用
+
+### 1、安装yuumi
+```
+npm i @cmao/yuumi -D
+ ```
+详情请见：https://shimo.im/docs/J8HQDwVtRXyRJtCP
+
+### 2、使用yuumi拉下此模版
+- init 一个新项目
+```
+yuumi init <project name>
+```
+- 根据提示选择PC—template
+- 一个PC项目创建完成
+
+### 3、enjoy coding
+
+
 ## 项目规范示例
 
 地址： https://github.com/juicecube/standard-example
