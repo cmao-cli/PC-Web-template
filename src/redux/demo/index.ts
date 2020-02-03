@@ -14,7 +14,7 @@ export const demo = createModel({
   reducers: {
     'demo/add': {
       name: Raw('addNum'),
-      reducer: (state, action:Action<number>) : IDemoState => {
+      reducer: (state, action:Action<number>):IDemoState => {
         const temp = state.num + action.payload!;
         // console.log(temp);
         return { ...state, num: temp };
@@ -22,7 +22,7 @@ export const demo = createModel({
     },
     'demo/minus': {
       name: Raw('minusNum'),
-      reducer: (state, action:Action<number>) : IDemoState => {
+      reducer: (state, action:Action<number>):IDemoState => {
         const temp = state.num - action.payload!;
         return { ...state, num: temp };
       },

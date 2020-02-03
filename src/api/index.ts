@@ -9,8 +9,8 @@
  * 详细用法请见：https://github.com/juicecube/mlz-axios
  */
 
-import Http from "@mlz/axios";
-import { errorParse } from "./error-code-parse";
+import Http from '@mlz/axios';
+import { errorParse } from './error-code-parse';
 
 const token = localStorage.getItem('authorization') || '';
 const AUTHORIZATION_TYPE_THREE = 3;

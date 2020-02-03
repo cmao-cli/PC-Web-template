@@ -3,13 +3,13 @@
  */
 
 type CodeParse = {
-  [key:string]:string
+  [key:string]:string;
 };
 
 const codeParse:CodeParse = {
   'A_0': '未知错误',
 };
 
-export const errorParse = function (errCode:string) : string {
+export const errorParse = function(errCode:string):string {
   return codeParse[errCode] || '未知错误';
 };

@@ -5,5 +5,5 @@ export interface IReduxState {
 }
 
 export const rootReducer = combineReducers<IReduxState>({
-  demo:demo.reducer,
+  demo: demo.reducer,
 });

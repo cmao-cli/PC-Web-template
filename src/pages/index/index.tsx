@@ -7,13 +7,13 @@ import { IReduxState } from 'src/redux/root-reducer';
 import { IDemoState, addNum, minusNum } from 'src/redux/demo';
 import './index.scss';
 
-interface IIndexProps {
+interface IndexProps {
   demoState:IDemoState;
   addNum:typeof addNum;
   minusNum:typeof minusNum;
 }
 
-class Index extends React.PureComponent<IIndexProps> {
+class Index extends React.PureComponent<IndexProps> {
   private _divider = 2;
   render() {
     const { num } = this.props.demoState;
@@ -38,6 +38,7 @@ const mapDispatchToProps = (dispatch:any) => bindActionCreators({
   minusNum,
 }, dispatch);
 
+// eslint-disable-next-line import/no-default-export
 export default connect(
   mapStateToProps,
   mapDispatchToProps,

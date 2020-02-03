@@ -5,19 +5,20 @@ import { RouteProps } from 'react-router-dom';
 
 export const _lazy = (loadFunc:() => Promise<any>) => {
   const Component = lazy(loadFunc);
+  // eslint-disable-next-line react/display-name
   return () => (
-      <ErrorBoundary>
-        <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>loading</div>}>
-          <Component />
-        </Suspense>
-      </ErrorBoundary>
-    );
+    <ErrorBoundary>
+      <Suspense fallback={<div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>loading</div>}>
+        <Component />
+      </Suspense>
+    </ErrorBoundary>
+  );
 };
 
 /**
  * 全局路由表
  */
-export let routes:RouteProps[] = [
+export const routes:RouteProps[] = [
   {
     path: '/',
     exact: true,
