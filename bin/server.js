@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 const _config = require('../config/index.js');
 
-const PORT = _config.buildtime.origin_server.port;
+const PORT = _config.buildtime.originServer.port;
 
 (function injectConfig() {
   const configScript = `<!--configArea--><script>window.CODEMAOCONFIG = ${JSON.stringify(_config.runtime)}</script><!--endOfConfigArea-->`;
